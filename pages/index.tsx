@@ -1,8 +1,4 @@
 import { useState } from 'react';
-import Image from 'next/image';
-import { Inter } from 'next/font/google';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
   const [url, setUrl] = useState('');
@@ -13,18 +9,17 @@ export default function Home() {
   };
 
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <form onSubmit={handleSubmit}>
+    <main className="flex min-h-screen flex-col items-center justify-center p-24">
+      <form onSubmit={handleSubmit} className="flex flex-col items-center">
         <input
           type="text"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
           placeholder="Enter YouTube video URL"
           required
+          className="mb-4 p-2 border border-gray-300 rounded"
         />
-        <button type="submit">Download as MP3</button>
+        <button type="submit" className="p-2 bg-blue-500 text-white rounded">Download as MP3</button>
       </form>
     </main>
   );
